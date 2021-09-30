@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block title %}
+<title>Bütün Elanlar</title>
+{% endblock title %} {% block body %} {% if result > 0 %}
+<h1>Bütün Elanlar</h1>
+<hr />
+<br />
+{% for car in cars %}
+<div class="card d-inline-block col-lg-3 col-md-4 mr-5 ml-4 mb-2">
+  <div class="card-body">
+    <small><a href="/profile/{{car.profile}}">{{car.profile}}</a></small>
+    <a
+      href="/announcement/{{car.id}}"
+      style="text-decoration: none; color: black"
+      ><h5 class="card-title">{{car.brand + " " + car.model}}</h5></a
+    >
+    <hr />
+    <b>{{car.price}} {{car.currency}}</b>
+    <hr />
+    <p class="card-text">
+      {{car.year}} il • {{car.engine}} L • {{car.kilometer}} km
+    </p>
+    <hr />
+    <small>{{car.city}}, {{car.announcement_date}}</small>
+  </div>
+</div>
+{% endfor %} {% else %}
+<h1>Bütün Elanlar</h1>
+<hr />
+{% endif %} {% endblock body %}

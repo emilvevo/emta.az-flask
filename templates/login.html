@@ -1,0 +1,15 @@
+{% extends "layout.html" %} {% block title %}
+<title>Daxil Ol</title>
+{% endblock title %} {% block body %}
+<h1>Daxil Ol</h1>
+<hr />
+{% from "formhelpers.html" import render_field %}
+<form method="post">
+  <dl>
+    <label for="username">Username: </label>{{ render_field(form.username,
+    class="form-control") }} <label for="password">Şifrə: </label>{{
+    render_field(form.password, class="form-control") }}
+  </dl>
+  <p><input type="submit" value="Daxil Ol" class="btn btn-primary" /></p>
+</form>
+{% endblock body %}

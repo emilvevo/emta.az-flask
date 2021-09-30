@@ -1,0 +1,63 @@
+{% extends "layout.html" %} {% block title %}
+<title>Profilim</title>
+{% endblock title %} {% block body %}
+<div class="d-flex justify-content-between">
+  <h4>{{session['username']}}</h4>
+  <li class="list-inline-item text-center">
+    <h5 class="font-weight-bold mb-0 d-block">{{result}}</h5>
+    <small class="text-muted">Elanlarım</small>
+  </li>
+</div>
+<hr />
+
+<a href="/addannouncement" class="btn btn-success btn-sm">Elan yarat +</a>
+
+<br />
+<br />
+
+{% if result > 0 %}
+<h5>Elanlarım</h5>
+<br />
+{% for car in cars %}
+
+<div class="card d-inline-block col-lg-3 col-md-4 mr-5 ml-4 mb-2">
+  <button style="background-color: transparent; border: none; cursor: pointer">
+    <a href="/edit/{{car.id}}">
+      <i class="far fa-edit m-2" style="color: blue; font-size: 1.3rem"></i
+    ></a>
+  </button>
+  <button style="background-color: transparent; border: none; cursor: pointer">
+    <a href="/remove/{{car.id}}">
+      <i
+        class="far fa-minus-square m-2"
+        style="color: red; font-size: 1.3rem"
+      ></i>
+    </a>
+  </button>
+  <div class="card-body">
+    <a
+      href="/announcement/{{car.id}}"
+      style="text-decoration: none; color: black"
+    >
+      <h5 class="card-title">{{car.brand + " " + car.model}}</h5></a
+    >
+    <hr />
+    <b>{{car.price}} {{car.currency}}</b>
+    <hr />
+    <p class="card-text">
+      {{car.year}} il • {{car.engine}} L • {{car.kilometer}} km
+    </p>
+    <hr />
+    <small>{{car.city}}, {{car.announcement_date}}</small>
+  </div>
+</div>
+
+{% endfor %} {% else %}
+<h5>Elanlarım</h5>
+<div class="announcements"></div>
+
+{% endif %}
+<a href="/logout" class="btn btn-danger btn-block mt-2 footer fixed-bottom"
+  >Çıxış et</a
+>
+{% endblock body %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %} {% block title %}
+<title>{{username}}</title>
+{% endblock title %} {% block body %} {% if result > 0 %}
+<div class="d-flex justify-content-between">
+  <h4>{{username}}</h4>
+  <li class="list-inline-item text-center">
+    <h5 class="font-weight-bold mb-0 d-block">{{result2}}</h5>
+    <small class="text-muted">Elanlar</small>
+  </li>
+</div>
+<hr />
+{% if result2 > 0 %}
+<h5>Elanlar</h5>
+<br />{% for car in cars %}
+<div class="card d-inline-block col-lg-3 col-md-4 mr-5 ml-4 mb-2">
+  <div class="card-body">
+    <a
+      href="/announcement/{{car.id}}"
+      style="text-decoration: none; color: black"
+    >
+      <h5 class="card-title">{{car.brand + " " + car.model}}</h5></a
+    >
+    <hr />
+    <b>{{car.price}} {{car.currency}}</b>
+    <hr />
+    <p class="card-text">
+      {{car.year}} il • {{car.engine}} L • {{car.kilometer}} km
+    </p>
+    <hr />
+    <small>{{car.city}}, {{car.announcement_date}}</small>
+  </div>
+</div>
+{% endfor %} {% else %}
+<h5>Elanlar</h5>
+<div class="announcements"></div>
+{% endif %} {% else %}
+<div class="alert alert-danger" role="alert">
+  Belə bir istifadəçi tapılmadı.
+</div>
+{% endif %} {% endblock body %}

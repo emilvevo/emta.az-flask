@@ -1,0 +1,40 @@
+{% extends "layout.html" %} {% block title %}
+<title>Elan Yarat</title>
+{% endblock title %} {% block body %}
+
+<h4>Yeni elan</h4>
+<hr />
+{% from "formhelpers.html" import render_field %}
+<form method="post">
+  <dl>
+    <label for="brand">Marka </label>{{ render_field(form.brand,
+    class="form-control") }} <label for="model">Model </label>{{
+    render_field(form.model, class="form-control") }}
+    <label for="price">Qiymət </label>{{ render_field(form.currency,
+    class="form-control") }} {{ render_field(form.price, class="form-control",
+    type="number", min=500, max=10000000) }}
+    <label for="year">Buraxılış İli </label>{{ render_field(form.year,
+    class="form-control", type="number", min=2000, max=2021) }}
+    <label for="engine">Mühərrik </label>{{ render_field(form.engine,
+    class="form-control") }}
+    <label for="engine_power">Mühərrikin gücü </label>{{
+    render_field(form.engine_power, class="form-control", type="number",min=0,
+    max=1000) }} <label for="kilometer">Sürüş (km) </label>{{
+    render_field(form.kilometer, class="form-control", type="number",min=0,
+    max=1000000) }}<label for="city">Şəhər </label>{{ render_field(form.city,
+    class="form-control") }}<label for="car_type">Ban növü </label>{{
+    render_field(form.car_type, class="form-control") }}
+    <label for="color">Rəng </label>{{ render_field(form.color,
+    class="form-control") }} <label for="fuel_type">Yanacaq növü </label>{{
+    render_field(form.fuel_type, class="form-control") }}
+    <label for="gearbox">Sürətlər qutusu </label>{{ render_field(form.gearbox,
+    class="form-control") }} <label for="transmitter">Ötürücü </label>{{
+    render_field(form.transmitter, class="form-control") }}
+    <label for="details"
+      >Əlavə məlumatlar (Maşın haqqında əlavələr, əlaqə vasitələri və s.) </label
+    >{{ render_field(form.details, class="form-control") }}
+  </dl>
+  <p><input type="submit" value="Elanı yarat" class="btn btn-primary" /></p>
+</form>
+
+{% endblock body %}

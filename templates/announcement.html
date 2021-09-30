@@ -1,0 +1,91 @@
+{% extends "layout.html" %} {% block title %}
+<title>Elan</title>
+{% endblock title %} {% block body %} {% if car %}
+<small><a href="/profile/{{car.profile}}">{{car.profile}}</a></small>
+<br />
+<br />
+<span
+  style="
+    font-size: 1rem;
+    padding: 1rem;
+    color: white;
+    background-color: darkblue;
+    margin-right: 2rem;
+  "
+  ><b>{{car.price}} {{car.currency}}</b></span
+>
+<h4 style="display: inline-block">
+  {{car.brand}} {{car.model}}, {{car.engine}} L, {{car.year}} il,
+  {{car.kilometer}} km
+</h4>
+<br />
+<br />
+<small> Elanın son yenilənmə tarixi: {{car.announcement_date}}</small>
+<hr />
+<table class="table">
+  <tbody>
+    <tr>
+      <th scope="row">Şəhər</th>
+      <td>{{car.city}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Marka</th>
+      <td>{{car.brand}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Model</th>
+      <td>{{car.model}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Buraxılış ili</th>
+      <td>{{car.year}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Ban növü</th>
+      <td>{{car.car_type}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Rəng</th>
+      <td>{{car.color}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Mühərrik</th>
+      <td>{{car.engine}} L</td>
+    </tr>
+    <tr>
+      <th scope="row">Mühərrikin gücü</th>
+      <td>{{car.engine_power}} a.g.</td>
+    </tr>
+    <tr>
+      <th scope="row">Yanacaq növü</th>
+      <td>{{car.fuel_type}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yürüş</th>
+      <td>{{car.kilometer}} km</td>
+    </tr>
+    <tr>
+      <th scope="row">Sürətlər qutusu</th>
+      <td>{{car.gearbox}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Ötürücü</th>
+      <td>{{car.gearbox}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Yeni</th>
+      <td>{{car.new}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Qiymət</th>
+      <td><b>{{car.price}} {{car.currency}}</b></td>
+    </tr>
+  </tbody>
+</table>
+<hr />
+<br />
+<h4>Əlavə məlumatlar və əlaqə vasitələri</h4>
+
+<hr />
+<br />
+{{car.details|safe}} {% endif %} {% endblock body %}
